@@ -8,11 +8,15 @@ app = FastAPI()
 app.mount("/maps", StaticFiles(directory="mapas"), name="static")
 templates = Jinja2Templates(directory="./mapas")
 
-@app.get('/map', response_class=HTMLResponse)
-async def map(request: Request):
+@app.get('/map/{id}', response_class=HTMLResponse)
+async def map(request: Request, id:int ): #Aqui se insertará algun parametro
     Datamining.execute_scripts()
-    print("PASO")
-    return templates.TemplateResponse("Map1.html", context={"request": request, "id": 1})
+    if (id ==1):
+        return templates.TemplateResponse("Map1.html", context={"request": request, "id": 1})
+    elif (id == 2):
+        return templates.TemplateResponse("Map2.html", context={"request": request, "id": 2})
+    else:
+        return templates.TemplateResponse("Map3.html", context={"request": request, "id": 3})
 
 
 

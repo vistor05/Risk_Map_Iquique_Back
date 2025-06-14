@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Request, Response
+from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
@@ -12,8 +12,6 @@ templates = Jinja2Templates(directory="./mapas")
 @app.get('/map/basic', response_class=HTMLResponse)
 async def map(request: Request):
     return templates.TemplateResponse("Map-Basic.html", context={"request": request, "id": 1})
-
-         
 
 
 @app.get('/map/hr', response_class=HTMLResponse)

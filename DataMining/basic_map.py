@@ -48,32 +48,7 @@ def create_basic_map(df):
 
         ).add_to(marker_cluster)
 
-    # === Agregar leyenda al mapa ===
-    legend_html = """
-    <div style="
-        position: fixed;
-        bottom: 50px;
-        left: 50px;
-        width: 220px;
-        height: auto;
-        background-color: white;
-        border:2px solid grey;
-        z-index:9999;
-        font-size:14px;
-        padding: 10px;
-        border-radius: 8px;
-        box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
-    ">
-    <b>Leyenda de Concentración de Accidentes</b><br>
-    <span style="color:orange;">&#9679;</span>mayor<br>
-    <span style="color:yellow;">&#9679;</span>media<br>
-    <span style="color:green;">&#9679;</span>baja<br>
-    </div>
-    """
-    m.get_root().html.add_child(Element(legend_html))
 
-    # === Agregar control de capas ===
-    folium.LayerControl().add_to(m)
 
-    # Mostrar mapa
+        # Mostrar mapa
     m.save(f"./mapas/Map-Basic.html")

@@ -30,11 +30,10 @@ def create_map_affectation(df):
         marker_cluster = MarkerCluster().add_to(grupo)
 
         df_filtrado = df[df[tipo] > 0]  # Mostrar solo si hay al menos 1 en esa categoría
-
+#f"Cluster: {row['cluster']}<br>"
         for _, row in df_filtrado.iterrows():
             message = (
-                f"Hora: {row['Hora']}<br>"
-                f"Cluster: {row['cluster']}<br>"
+                f"Hora: {row['Hora']}:00<br>"
                 f"Muertos: {row['Muertos']}<br>"
                 f"Graves: {row['Graves']}<br>"
                 f"Menos Graves: {row['Menos Graves']}<br>"

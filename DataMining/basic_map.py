@@ -35,7 +35,7 @@ def create_basic_map(df):
 
     # Agregar puntos al mapa
     for _, row in df.iterrows():
-        message = f"cluster: {row['cluster']}<br>Fallecidos: {row['Muertos']}<br>Graves: {row['Graves']}<br>Menos Graves: {row['Menos Graves']}<br>Leves: {row['Leves']}<br>Ilesos: {row['Ilesos']}"
+        message = f"Fallecidos: {row['Muertos']}<br>Graves: {row['Graves']}<br>Menos Graves: {row['Menos Graves']}<br>Leves: {row['Leves']}<br>Ilesos: {row['Ilesos']}"
         folium.CircleMarker(
             location=[row['Latitud'], row['Longitud']],
             radius=4,

@@ -46,11 +46,10 @@ def create_map_hr(df):
             continue
 
         marker_cluster = MarkerCluster(name=f"{label} hrs").add_to(m)
-
+  #f"cluster: {row['cluster']}<br>"
         for _, row in df_filtrado.iterrows():
             message = (
-                f"Hora: {row['Hora']}<br>"
-                f"cluster: {row['cluster']}<br>"
+                f"Hora: {row['Hora']}:00<br>"
                 f"Fallecidos: {row['Muertos']}<br>"
                 f"Graves: {row['Graves']}<br>"
                 f"Menos Graves: {row['Menos Graves']}<br>"

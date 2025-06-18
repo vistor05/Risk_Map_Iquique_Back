@@ -31,6 +31,6 @@ def execute_script(type_map:str):
         create_map_affectation(df)
 
 
-execute_script('hr')
-execute_script('basic')
-# execute_script('affectation')
+# execute_script('hr')
+# execute_script('basic')
+execute_script('affectation')

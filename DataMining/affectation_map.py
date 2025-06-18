@@ -60,6 +60,25 @@ def create_map_affectation(df):
 
     # === Guardar los datos como GeoJSON ===
     # Crear GeoDataFrame con geometría
-    gdf = gpd.GeoDataFrame(df.copy(), geometry=gpd.points_from_xy(df.Longitud, df.Latitud))
-    gdf.set_crs(epsg=4326, inplace=True)  # Asegurar que esté en WGS84 (lat/lon)
+    df_grouped = (
+        df.groupby(['Latitud', 'Longitud'], as_index=False)
+        .agg({
+            'Hora': 'first',        # O podrías poner la más frecuente o promedio si prefieres
+            'Muertos': 'sum',
+            'Graves': 'sum',
+            'Menos Graves': 'sum',
+            'Leves': 'sum',
+            'Ilesos': 'sum',
+            'cluster': 'first'      # o podrías usar un modo o promedio si hay varios clusters por punto
+        })
+    )
+
+    # Crear geometría
+    gdf = gpd.GeoDataFrame(
+        df_grouped,
+        geometry=gpd.points_from_xy(df_grouped.Longitud, df_grouped.Latitud),
+        crs="EPSG:4326"
+    )
+
+    # Guardar como GeoJSON
     gdf.to_file("./mapas/Map-Affectation.geojson", driver='GeoJSON')

@@ -6,6 +6,7 @@ import pandas as pd
 from basic_map import create_basic_map
 from hr_map import create_map_hr
 from affectation_map import create_map_affectation
+import os
 
 
 def execute_script(type_map:str):
@@ -31,6 +32,19 @@ def execute_script(type_map:str):
         create_map_affectation(df)
 
 
-# execute_script('hr')
-# execute_script('basic')
-execute_script('affectation')
+os.system('cls')
+print('¿Cual desea ejecutar?\n')
+print('1) Básico\n2) Hora\n3) Afectación\n4) Todos')
+option = int(input('Ingrese opcion: '))
+print('ejecutando...')
+if(option == 1):
+    execute_script('basic')    
+elif(option == 2):
+    execute_script('hr')
+elif(option == 3):
+    execute_script('affectation')
+else:
+    execute_script('hr')
+    execute_script('basic')
+    execute_script('affectation')
+print('proceso finalizado')

@@ -1,9 +1,7 @@
 import folium
-from folium import Element
 from folium.plugins import MarkerCluster
 import pandas as pd
-import geopandas as gpd
-from shapely.geometry import Point
+
 
 def create_map_hr(df):
 
@@ -76,9 +74,3 @@ def create_map_hr(df):
 
 # Mostrar mapa
     m.save(f"./mapas/Map-Hr.html")
-
-    # === Guardar los datos como GeoJSON ===
-    # Crear GeoDataFrame con geometría
-    gdf = gpd.GeoDataFrame(df.copy(), geometry=gpd.points_from_xy(df.Longitud, df.Latitud))
-    gdf.set_crs(epsg=4326, inplace=True)  # Asegurar que esté en WGS84 (lat/lon)
-    gdf.to_file("./mapas/Map-Hr.geojson", driver='GeoJSON')

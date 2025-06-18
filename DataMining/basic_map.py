@@ -4,6 +4,8 @@ from folium import Element
 from folium.plugins import MarkerCluster
 import pandas as pd
 import numpy as np
+import geopandas as gpd
+from shapely.geometry import Point
 
 def create_basic_map(df):
     # Elegimos un punto central del mapa (promedio de coordenadas)
@@ -52,3 +54,9 @@ def create_basic_map(df):
 
         # Mostrar mapa
     m.save(f"./mapas/Map-Basic.html")
+
+    # === Guardar los datos como GeoJSON ===
+    # Crear GeoDataFrame con geometría
+    gdf = gpd.GeoDataFrame(df.copy(), geometry=gpd.points_from_xy(df.Longitud, df.Latitud))
+    gdf.set_crs(epsg=4326, inplace=True)  # Asegurar que esté en WGS84 (lat/lon)
+    gdf.to_file("./mapas/Map-Basic.geojson", driver='GeoJSON')

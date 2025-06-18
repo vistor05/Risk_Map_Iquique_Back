@@ -33,4 +33,4 @@ def execute_script(type_map:str):
 
 execute_script('hr')
 execute_script('basic')
-execute_script('affectation')
+# execute_script('affectation')

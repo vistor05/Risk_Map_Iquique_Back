@@ -1,6 +1,7 @@
 import folium
-from folium import Element
 from folium.plugins import MarkerCluster
+import geopandas as gpd
+from shapely.geometry import Point
 
 
 def create_map_affectation(df):
@@ -30,7 +31,7 @@ def create_map_affectation(df):
         marker_cluster = MarkerCluster().add_to(grupo)
 
         df_filtrado = df[df[tipo] > 0]  # Mostrar solo si hay al menos 1 en esa categoría
-#f"Cluster: {row['cluster']}<br>"
+
         for _, row in df_filtrado.iterrows():
             message = (
                 f"Hora: {row['Hora']}:00<br>"
@@ -51,11 +52,14 @@ def create_map_affectation(df):
                 popup=message
             ).add_to(marker_cluster)
 
-
-
     # === Control de capas ===
     folium.LayerControl().add_to(m)
 
+    # === Guardar el mapa como HTML ===
+    m.save("./mapas/Map-Affectation.html")
 
-    # === Mostrar mapa ===
-    m.save(f"./mapas/Map-Affectation.html")
+    # === Guardar los datos como GeoJSON ===
+    # Crear GeoDataFrame con geometría
+    gdf = gpd.GeoDataFrame(df.copy(), geometry=gpd.points_from_xy(df.Longitud, df.Latitud))
+    gdf.set_crs(epsg=4326, inplace=True)  # Asegurar que esté en WGS84 (lat/lon)
+    gdf.to_file("./mapas/Map-Affectation.geojson", driver='GeoJSON')

@@ -1,8 +1,11 @@
+
+
 import pandas as pd
 import folium
 from folium.plugins import MarkerCluster
 import pandas as pd
 from geopy.distance import geodesic
+from const.name_maps import mapa_i
 
 
 def message_tooltip(row):
@@ -105,6 +108,6 @@ def generate_map(df):
             # popup=popup
         ).add_to(marker_cluster)
 
-    m.save('./mapas/mapa_agrupacion_zona_riesgo_Tarapaca.html')
+    m.save(f'./mapas/{mapa_i}')
 
     #

@@ -3,8 +3,8 @@ import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import DBSCAN
 import pandas as pd
-from data_preprocessing import data_preprocessing
-from generate_map import generate_map
+from dataMining.data_preprocessing import data_preprocessing
+from dataMining.generate_map import generate_map
 #Función principal
 def execute_script():
     print('ejecutando...')

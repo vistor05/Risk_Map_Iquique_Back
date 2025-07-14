@@ -1,0 +1,1 @@
+mapa_i = 'mapa_agrupacion_zona_riesgo_Tarapaca.html'

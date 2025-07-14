@@ -2,6 +2,7 @@ from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+from const.name_maps import mapa_i
 
 app = FastAPI(
     title="Documentación Risk Map Iquique",
@@ -18,36 +19,15 @@ templates = Jinja2Templates(directory="./mapas")
 
 
 @app.get(
-    '/map/basic',
+    '/map/tarapaca',
     response_class=HTMLResponse,
-    tags=["Map"],
-    summary="Mapa básico",
-    description="Devuelve un template HTML del mapa básico."
+    tags=["Map_Tarapaca"],
+    summary="Mapa de la Región de Tarapacá",
+    description="Devuelve un template HTML de un mapa de la región de Tarapacá con información de zonas con mayor frecuencia de accidentes automovilisticos."
 )
 async def map_basic(request: Request):
-    return templates.TemplateResponse("Map-Basic.html", context={"request": request, "id": 1})
+    return templates.TemplateResponse(mapa_i, context={"request": request, "id": 1})
 
-
-@app.get(
-    '/map/hr',
-    response_class=HTMLResponse,
-    tags=["Map"],
-    summary="Mapa HR",
-    description="Devuelve un template HTML del mapa con filtros de horas."
-)
-async def map_hr(request: Request):
-    return templates.TemplateResponse("Map-Hr.html", context={"request": request, "id": 2})
-
-
-@app.get(
-    '/map/level-affectation',
-    response_class=HTMLResponse,
-    tags=["Map"],
-    summary="Mapa por nivel de afectación",
-    description="Devuelve un template HTML del mapa con filtros por nivel de afectación."
-)
-async def map_affectation(request: Request):
-    return templates.TemplateResponse("Map-Affectation.html", context={"request": request, "id": 3})
 
 
 if __name__ == "__main__":

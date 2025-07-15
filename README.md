@@ -1,12 +1,12 @@
 # 🌍 Risk Map Tarapacá Backend
 
-![Project Banner](https://img.shields.io/github/deployments/krismoshiro/risk-map-iquique-front/github-pages?label=Deploy&style=flat-square)
+![Project Banner](https://img.shields.io/github/deployments/krismoshiro/risk-map-chile-back/github-pages?label=Deploy&style=flat-square)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
 **Servicio para la visualización interactiva de zonas críticas de accidentes en la Región de Tarapacá, Chile**  
 Repositorio Back-End del proyecto de investigación con minería de datos.
 
-🔗 **Demo:** [https://krismoshiro.github.io/risk-map-iquique-front/](https://krismoshiro.github.io/risk-map-iquique-front/)
+🔗 **Demo:** [https://krismoshiro.github.io/risk-map-chile-front/](https://krismoshiro.github.io/risk-map-chile-front/)
 
 ---
 
@@ -14,9 +14,9 @@ Repositorio Back-End del proyecto de investigación con minería de datos.
 
 El proyecto completo está dividido en tres repositorios:
 
-- **Frontend:** [`risk-map-iquique-front`](https://github.com/krismoshiro/risk-map-iquique-front) 
-- **Backend:** [`risk-map-iquique-back`](https://github.com/vistor05/Risk_Map_Iquique_Back)  ← *este repositorio*
-- **Datos procesados y crudos:** [Repositorio de Datos](#) *(enlace aquí cuando esté disponible)*
+- **Frontend:** [`risk-map-chile-front`](https://github.com/krismoshiro/risk-map-chile-front) 
+- **Backend:** [`risk-map-chile-back`](https://github.com/vistor05/risk-map-chile-back)  ← *este repositorio*
+- **Datos:** [`risk-map-iquique-data`](https://github.com/krismoshiro/risk-map-chile-data)
 
 ---
 
@@ -56,12 +56,6 @@ Analizar los accidentes de tránsito en la región de Tarapacá entre los años 
 - [FastAPI](https://fastapi.tiangolo.com/) (creación de APIs REST)
 - [DBSCAN](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.DBSCAN.html) (clustering espacial)
 
-
-## 📄 Documentación de la API
-
-👉 La documentación completa está disponible en Swagger:  
-🔗 **[https://risk-map-iquique-back.onrender.com/docs#/](https://risk-map-iquique-back.onrender.com/docs#/)**
-
 ## 🧠 Proceso de Minería de Datos
 
 ### 1. Comprensión del Negocio
@@ -94,7 +88,7 @@ Analizar los accidentes de tránsito en la región de Tarapacá entre los años 
 
 ```bash
 # Clonar repositorio
-git clone https://github.com/vistor05/Risk_Map_Iquique_Back.git
+git clone https://github.com/vistor05/risk-map-chile-back.git
 cd risk-map-iquique-back
 
 # Instalar dependencias

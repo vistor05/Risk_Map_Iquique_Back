@@ -1,4 +1,4 @@
-# 🌍 Risk Map Iquique Back
+# 🌍 Risk Map Tarapacá Backend
 
 ![Project Banner](https://img.shields.io/github/deployments/krismoshiro/risk-map-iquique-front/github-pages?label=Deploy&style=flat-square)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)

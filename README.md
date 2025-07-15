@@ -1,4 +1,4 @@
-# 🌍 Risk Map Tarapacá Backend
+# 🌍 Risk Map Chile Backend
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 

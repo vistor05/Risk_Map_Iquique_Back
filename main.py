@@ -9,7 +9,7 @@ app = FastAPI(
     openapi_tags=[
         {
             "name": "Map",
-            "description": "Vistas de mapas en formato HTML para los distintos mapas del sistema Risk Map Iquique."
+            "description": "Vistas de mapas en formato HTML para mapas"
         }
     ]
 )
@@ -33,7 +33,7 @@ async def map_basic(request: Request):
 if __name__ == "__main__":
     import os
     import uvicorn
-    port = int(os.environ.get("PORT", 8000))  # Render define esta variable
+    port = int(os.environ.get("PORT", 8000))
     uvicorn.run("main:app", host="0.0.0.0", port=port)
 
 

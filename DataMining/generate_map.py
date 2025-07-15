@@ -42,7 +42,7 @@ def message_tooltip(row):
     """
         )
 
-# Definir función que asigna color según total_accidentes
+# Función que asigna color según total_accidentes
 def color_por_accidentes(total):
     if not isinstance(total, str):
         if total <= 10:
@@ -68,8 +68,7 @@ def generate_map(df):
     m = folium.Map(location=[lat_center-0.2, lng_center-0.1], zoom_start=12)
     marker_cluster = MarkerCluster().add_to(m)
 
-
-    # Calcular radios reales de todos los clusters
+    # Calcular radios de todos los clusters
     radios = []
     for _, row in df.iterrows():
         punto1 = (row['Latitud_min'], row['Longitud_min'])
@@ -93,9 +92,8 @@ def generate_map(df):
         color = color_por_accidentes(row['total_accidentes'])
 
         message = message_tooltip(row)
-    # <li><b>Cluster:</b> {row['cluster']}</li>
 
-        popup = folium.Popup(message, max_width=300)
+        #popup = folium.Popup(message, max_width=300)
 
         folium.Circle(
             location=[row['Latitud_mean'], row['Longitud_mean']],
@@ -109,5 +107,3 @@ def generate_map(df):
         ).add_to(marker_cluster)
 
     m.save(f'./mapas/{mapa_i}')
-
-    #

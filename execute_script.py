@@ -11,8 +11,7 @@ def execute_script():
     # Carga de datos
     url = 'https://github.com/KrisMoshiro/risk-map-iquique-data/raw/refs/heads/main/acc_2010_2023_V4.3.csv'
     df = pd.read_csv(url)
-    features = ['Latitud', 'Longitud']#, 'Muertos', 'Graves', 'Menos Graves', 'Leves','Ilesos']
-    X = df[features].copy()
+    features = ['Latitud', 'Longitud']
     scaler = StandardScaler()
 
     X_scaled = scaler.fit_transform(X)
@@ -26,22 +25,3 @@ def execute_script():
 
 
 execute_script()
-
-
-
-# os.system('cls')
-# print('¿Cual desea ejecutar?\n')
-# print('1) Básico\n2) Hora\n3) Afectación\n4) Todos')
-# option = int(input('Ingrese opcion: '))
-# print('ejecutando...')
-# if(option == 1):
-#     execute_script('basic')    
-# elif(option == 2):
-#     execute_script('hr')
-# elif(option == 3):
-#     execute_script('affectation')
-# else:
-#     execute_script('hr')
-#     execute_script('basic')
-#     execute_script('affectation')
-# print('proceso finalizado')

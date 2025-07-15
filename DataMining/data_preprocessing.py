@@ -42,23 +42,12 @@ def data_preprocessing(df):
     'Longitud': ['mean', 'min', 'max'],
     }).reset_index()
   
-  
-    # Aplanar columnas multiíndice
     df_resumen.columns = ['_'.join(col).strip() for col in df_resumen.columns.values]
-
     df_resumen = df_resumen.rename(columns={'cluster_': 'cluster'})
-    # Agregar total de accidentes
-    
     conteo_accidentes = df.groupby('cluster').size().reset_index(name='total_accidentes')
     df_resumen = df_resumen.merge(conteo_accidentes, on='cluster', how='left')
-
-    # Unir con las modas de rango horario
     df_resumen = df_resumen.join(modas_rangos)
-
-    # Reemplazar NaN o None por "-:-"
     df_resumen = df_resumen.fillna("-:-")
-    
-    # Resetear índice
     df = df_resumen[df_resumen['cluster'] != -1].copy()
     df_resumen = df.reset_index(drop=True)
 

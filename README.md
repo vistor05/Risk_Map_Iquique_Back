@@ -1,6 +1,5 @@
 # 🌍 Risk Map Tarapacá Backend
 
-![Project Banner](https://img.shields.io/github/deployments/krismoshiro/risk-map-chile-back/github-pages?label=Deploy&style=flat-square)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
 **Servicio para la visualización interactiva de zonas críticas de accidentes en la Región de Tarapacá, Chile**  

@@ -15,7 +15,7 @@ El proyecto completo está dividido en tres repositorios:
 
 - **Frontend:** [`risk-map-chile-front`](https://github.com/krismoshiro/risk-map-chile-front) 
 - **Backend:** [`risk-map-chile-back`](https://github.com/vistor05/risk-map-chile-back)  ← *este repositorio*
-- **Datos:** [`risk-map-iquique-data`](https://github.com/krismoshiro/risk-map-chile-data)
+- **Datos:** [`risk-map-chile-data`](https://github.com/krismoshiro/risk-map-chile-data)
 
 ---
 
@@ -88,7 +88,7 @@ Analizar los accidentes de tránsito en la región de Tarapacá entre los años 
 ```bash
 # Clonar repositorio
 git clone https://github.com/vistor05/risk-map-chile-back.git
-cd risk-map-iquique-back
+cd risk-map-chile-back
 
 # Instalar dependencias
 npm install

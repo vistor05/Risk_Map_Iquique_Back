@@ -5,13 +5,15 @@ from sklearn.cluster import DBSCAN
 import pandas as pd
 from dataMining.data_preprocessing import data_preprocessing
 from dataMining.generate_map import generate_map
-#Función principal
+
+#Función principal donde executa el mapa
 def execute_script():
     print('ejecutando...')
     # Carga de datos
     url = 'https://github.com/KrisMoshiro/risk-map-iquique-data/raw/refs/heads/main/acc_2010_2023_V4.3.csv'
     df = pd.read_csv(url)
     features = ['Latitud', 'Longitud']
+    X = df[features].copy()
     scaler = StandardScaler()
 
     X_scaled = scaler.fit_transform(X)

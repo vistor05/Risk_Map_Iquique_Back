@@ -38,22 +38,5 @@ if __name__ == "__main__":
 
 
 
-#@app.get('/map/execute/{type_map}')
-# async def map(type_map: str):
-#     print(type_map)
-#     if(type_map == 'basic'):
-#        execute_script('basic')
-#        return Response(status_code=202)
-#     elif(type_map == 'hr'):
-#         execute_script('hr')
-#         return Response(status_code=202)
-#     elif(type_map == 'affectation'):
-#         execute_script('affectation')
-#         return Response(status_code=202)
-#     else:
-#         return Response(status_code=404) 
-
-
-
 
 
